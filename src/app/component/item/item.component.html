@@ -1,6 +1,6 @@
 <div class="item">
   @for (food of this.cartService.foods; track food.id) {
-    <div class="box" [routerLink]="['/product', food.id]">
+    <div class="box" [routerLink]="['/layout/product', food.id]">
       <img class="img" [src]="food.image" />
       <h3>Tên sản phẩm: {{food.name}}</h3>
       <h3>Mô tả: {{food.des}}</h3>

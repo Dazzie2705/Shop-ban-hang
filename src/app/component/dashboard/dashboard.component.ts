@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, inject, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {CartService} from "../../service/cart.service";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
@@ -13,8 +13,12 @@ import {Food} from "../../model/food.model";
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
   constructor(public cartService: CartService) {}
+
+
+  ngOnInit(): void {
+  }
 
   @ViewChild('appDialog', { static: true })
   dialog!: ElementRef<HTMLDialogElement>;
