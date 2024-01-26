@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "shopping-cart-working",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

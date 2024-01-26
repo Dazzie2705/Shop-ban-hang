@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shopbanhang1-e3a38": {
+      "hosting": {
+        "shopping-cart-working": [
+          "shopbanhang1-e3a38"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shopbanhang1-e3a38"
+  }
+}

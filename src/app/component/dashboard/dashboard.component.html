@@ -1,0 +1,131 @@
+<h2 style="font-weight: bold; color: black;">Food Management</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+    <tr>
+      <th>Ảnh món</th>
+      <th>Tên món</th>
+      <th>Thành phần</th>
+      <th>Giá</th>
+      <th>Hiện có</th>
+      <th>Trong kho</th>
+      <th>Điều chỉnh</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (food of this.cartService.foods; track food.id) {
+        <tr>
+          <td>
+            <img width="50px" [src]="food.image">
+          </td>
+          <td>{{food.name}}</td>
+          <td>{{food.des}}</td>
+          <td>{{food.price}} VNĐ</td>
+          <td>{{food.quantity}}</td>
+          <td>{{food.inStock}}</td>
+          <td style="display: flex; justify-content: space-evenly;">
+            <button class="btn-edit" (click)="openEditDialog(food)">Điều chỉnh</button>
+            <button class="btn-del" (click)="deleteProduct(food)">Xóa</button>
+          </td>
+        </tr>}
+    <tbody>
+  </table>
+</div>
+
+<div class="btn">
+  <button class="add" (click)="openDialog()">Thêm</button>
+</div>
+
+<dialog #appDialog>
+  <!-- custom-dialog.component.html -->
+  <div class="container">
+    <div class="title">
+      <h3>Tạo món</h3>
+    </div>
+    <form [formGroup]="form">
+      <div style="display: flex; justify-content: space-between; width: 600px;">
+        <div>
+          <div class="username">
+            <h4>Tên món</h4>
+            <input type="text" placeholder="Name" formControlName="name">
+          </div>
+          <div class="username">
+            <h4>Thành phần</h4>
+            <input type="text" placeholder="Description" formControlName="des">
+          </div>
+          <div class="username">
+            <h4>Giá</h4>
+            <input type="text" placeholder="Price" formControlName="price">
+          </div>
+        </div>
+        <div>
+          <div class="username">
+            <h4>Hiện có</h4>
+            <input type="text" placeholder="Quantity" formControlName="quantity">
+          </div>
+          <div class="fisrtname">
+            <h4>Tồn kho</h4>
+            <input type="text" placeholder="Stock" formControlName="inStock">
+          </div>
+          <div class="lastname">
+            <h4>Hình ảnh</h4>
+            <input type="text" placeholder="Image" formControlName="image">
+          </div>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button type="submit" (click)="submit()">Thêm món</button>
+        <button (click)="closeDialog()">Hủy</button>
+      </div>
+    </form>
+
+  </div>
+</dialog>
+
+<dialog #formup>
+  <!-- custom-dialog.component.html -->
+  <div class="container">
+    <div class="title">
+      <h3>Chỉnh món</h3>
+    </div>
+    <form [formGroup]="formupdate">
+      <div style="display: flex; justify-content: space-between; width: 600px;">
+        <div>
+          <div class="username">
+            <h4>Tên món</h4>
+            <input type="text" placeholder="Name" formControlName="name">
+          </div>
+          <div class="username">
+            <h4>Thành phần</h4>
+            <input type="text" placeholder="Description" formControlName="des">
+          </div>
+          <div class="username">
+            <h4>Giá</h4>
+            <input type="text" placeholder="Price" formControlName="price">
+          </div>
+        </div>
+        <div>
+          <div class="username">
+            <h4>Hiện có</h4>
+            <input type="text" placeholder="Quantity" formControlName="quantity">
+          </div>
+          <div class="fisrtname">
+            <h4>Hàng tồn</h4>
+            <input type="text" placeholder="Stock" formControlName="inStock">
+          </div>
+          <div class="lastname">
+            <h4>Hình ảnh</h4>
+            <input type="text" placeholder="Image">
+          </div>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button type="submit" (click)="updateItem()">Cập nhật</button>
+        <button (click)="closeEditDialog()">Hủy</button>
+      </div>
+    </form>
+
+  </div>
+</dialog>
